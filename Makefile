@@ -15,12 +15,23 @@ gcc-x86:
 install: install-armv7 install-x64 install-x86
 
 install-armv7:
-	./chromeos-armv7 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
+	./chromeos-armv7 bash -c 'wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash'
 
 install-x64:
-	./chromeos-x64 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
+	./chromeos-x64 bash -c 'wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash'
 
 install-x86:
+	./chromeos-x86 bash -c 'wget -q -O - https://raw.github.com/skycocker/chromebrew/master/install.sh | bash'
+
+install-jam: install-jam-armv7 install-jam-x64 install-jam-x86
+
+install-jam-armv7:
+	./chromeos-armv7 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
+
+install-jam-x64:
+	./chromeos-x64 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
+
+install-jam-x86:
 	./chromeos-x86 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
 
 scripts: ${SCRIPTS}

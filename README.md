@@ -10,6 +10,13 @@ Those are available at docker-hub or you can compile them from https://github.co
 And also it is required to enable qemu-arm on docker host.
 
 ```
+$ sudo apt install qemu-user qemu-user-static
+```
+
+Or it is possible to set them from containers by hand.
+
+```
+$ ./chromeos-armv7 -a --privileged bash
 $ ls /proc/sys/fs/binfmt_misc
 $ sudo mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
 $ ls /proc/sys/fs/binfmt_misc

@@ -26,15 +26,15 @@ install-x86:
 scripts: ${SCRIPTS}
 
 chromeos-armv7:
-	docker run --rm jam7/chromeos-armv7 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/armv7:/usr/local ";' > $@
+	docker run --rm jam7/chromeos-armv7 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/armv7:/usr/local --cpuset-cpus=0 ";' > $@
 	chmod a+x $@
 
 chromeos-x64:
-	docker run --rm jam7/chromeos-x64 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/x64:/usr/local ";' > $@
+	docker run --rm jam7/chromeos-x64 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/x64:/usr/local --cpuset-cpus=0 ";' > $@
 	chmod a+x $@
 
 chromeos-x86:
-	docker run --rm jam7/chromeos-x86 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/x86:/usr/local ";' > $@
+	docker run --rm jam7/chromeos-x86 | sed -e '/^HOST_VOLUMES=/s;$$;"-v ${PWD}/x86:/usr/local --cpuset-cpus=0 ";' > $@
 	chmod a+x $@
 
 clean: FORCE

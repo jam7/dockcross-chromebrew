@@ -1,6 +1,19 @@
 
 SCRIPTS = chromeos-armv7 chromeos-x86 chromeos-x64
 
+gcc: gcc-armv7 gcc-x64 gcc-x86
+
+gcc-armv7:
+	./chromeos-armv7 crew install buildessential
+
+gcc-x64:
+	./chromeos-x64 crew install buildessential
+
+gcc-x86:
+	./chromeos-x86 crew install buildessential
+
+install: install-armv7 install-x64 install-x86
+
 install-armv7:
 	./chromeos-armv7 bash -c 'wget -q -O - https://raw.github.com/jam7/chromebrew/master/install.sh | bash'
 
